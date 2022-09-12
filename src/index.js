@@ -1,17 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
+import"./App.css";
+import { useState } from 'react';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+function Room(){
+const[isLit,setLit] = useState(false);
+
+
+return (
+<div className={`room ${isLit ? 'let' : 'dark'}`}>
+the room is lit  {isLit ? 'let' : 'dark'}
+<br/>
+<br/>
+<button onClick={()=>setLit(!isLit)}><i class="fa-solid fa-play-pause">Flip</i></button>
+
+</div>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+}
+ReactDOM.render(<Room/>,document.querySelector('#root'));
